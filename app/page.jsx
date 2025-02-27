@@ -8,7 +8,7 @@ export default async function page() {
   const fetchTodos = async () => {
     "use server";
     // フルパスで記述　あとで直す
-    const res = await fetch(`http://localhost:3000/api/todo?userId=${user.id}`);
+    const res = await fetch(`/api/todo?userId=${user.id}`);
     return await res.json();
   };
 
