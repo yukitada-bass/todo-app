@@ -7,8 +7,13 @@ export default async function page() {
 
   const fetchTodos = async () => {
     "use server";
-    const url = new URL(`/api/todo?userId=${user.Id}`, window.location.origin);
-    const res = await fetch(url);
+    // ローカル用
+    // const res = await fetch(`http://localhost:3000/api/todo?userId=${user.id}`);
+
+    // 本番用
+    const res = await fetch(
+      `https://todo-app-mu-lyart.vercel.app/api/todo?userId=${user.id}`
+    );
     return await res.json();
   };
 
